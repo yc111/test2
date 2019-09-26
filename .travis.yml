@@ -21,7 +21,7 @@ after_script:
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
-  - git commit -m "deploy by Travis CI env"
+  - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
   - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
 # E: Build LifeCycle
 
