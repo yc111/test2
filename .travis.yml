@@ -32,6 +32,6 @@ branches:
     
 env:
   global:
-     - GH_REF: github.com/yc111/something.git
+     - GH_REF: github.com/yc111/ssh.git
     
 
