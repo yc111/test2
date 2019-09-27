@@ -36,13 +36,16 @@ after_script:
   - git branch -a
   - cat .git/logs/HEAD
   - git status
+  - git init
+  - git branch -a
+  - cat .git/logs/HEAD
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
   - git status
   - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
   - cat .git/logs/HEAD
-  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" gh-pages:${D_BRANCH}
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
   - cat .git/logs/HEAD
   # - cd dist
   # - git init
