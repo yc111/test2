@@ -16,42 +16,17 @@ script:
   - npm run build
 
 after_script:
-  - ls -a
-  - git branch -a
-  - cat .git/logs/HEAD
   - git clone https://${GH_REF} .temp
   - cd .temp
-  - ls -a
-  - git branch -a
-  - cat .git/logs/HEAD
   - git checkout gh-pages
-  - ls -a
-  - git branch -a
-  - cat .git/logs/HEAD
   - cd ../
-  - ls dist -a
-  - mv .temp/.git ./dist
+  - mv .temp/.git dist
   - cd dist
-  - ls -a
-  - git branch -a
-  - cat .git/logs/HEAD
-  - git status
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
-  - git status
   - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
-  - cat .git/logs/HEAD
   - git push --force --quiet "https://${Travis_Token}@${GH_REF}" gh-pages:${D_BRANCH}
-  - cat .git/logs/HEAD
-  # - cd dist
-  # - git init
-  # - git config user.name "${U_NAME}"
-  # - git config user.email "${U_EMAIL}"
-  # - git add .
-  # - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
-  # - cat .git/logs/HEAD
-  # - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
 # E: Build LifeCycle
 
 # 只有指定的分支提交时才会运行脚本
