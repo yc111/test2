@@ -39,7 +39,7 @@ after_script:
   - git add .
   - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
   - cat .git/logs/HEAD
-  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" gh-pages:${D_BRANCH}
   - cat .git/logs/HEAD
   # - cd dist
   # - git init
