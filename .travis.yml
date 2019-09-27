@@ -16,15 +16,15 @@ script:
   - npm run build
 
 after_script:
-  # - ls -a
-  # - git clone https://${GH_REF} .deploy_git
-  # - cd .deploy_git
-  # - git checkout gh-pages
-  # - ls -a
-  # - cd ../
-  # - mv .deploy_git/.git ./dist
+  - ls -a
+  - git clone https://${GH_REF} .deploy_git
+  - cd .deploy_git
+  - git checkout gh-pages
+  - ls -a
+  - cd ../
+  - mv .deploy_git/.git ./dist
   - cd dist
-  - git init
+  # - git init
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
