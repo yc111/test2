@@ -16,24 +16,37 @@ script:
   - npm run build
 
 after_script:
-  - ls -a
-  - git clone https://${GH_REF} .deploy_git
-  - cd .deploy_git
-  - git checkout gh-pages
-  - ls -a
-  - cat .git/logs/HEAD
-  - cd ../
-  - mv .deploy_git/.git ./dist
-  - cd dist
-  - cat .git/logs/HEAD
-  - git init
-  - cat .git/logs/HEAD
-  - git config user.name "${U_NAME}"
-  - git config user.email "${U_EMAIL}"
-  - git add .
-  - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
-  - cat .git/logs/HEAD
-  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
+  # - ls -a
+  # - git branch -a
+  # - cat .git/logs/HEAD
+  # - git clone https://${GH_REF} .deploy_git
+  # - cd .deploy_git
+  # - git checkout gh-pages
+  # - ls -a
+  # - git branch -a
+  # - cat .git/logs/HEAD
+  # - cd ../
+  # - mv .deploy_git/.git ./dist
+  # - cd dist
+  # - ls -a
+  # - git branch -a
+  # - cat .git/logs/HEAD
+  # - git config user.name "${U_NAME}"
+  # - git config user.email "${U_EMAIL}"
+  # - git add .
+  # - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
+  # - cat .git/logs/HEAD
+  # - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
+  # - cat .git/logs/HEAD
+
+  - cd dist
+  - git init
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m ":construction_worker:- Build & Deploy by Travis CI"
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:${D_BRANCH}
+
 # E: Build LifeCycle
 
 # 只有指定的分支提交时才会运行脚本
